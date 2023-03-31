@@ -31,3 +31,4 @@ for x in examples:
 # tokenizer.decode(model.generate(**tokenizer([x], return_tensors='pt'), max_length=64)[0], skip_special_tokens=True)
 # tokenizer.decode(model.generate(**tokenizer([x], return_tensors='pt'), max_length=64)[0], skip_special_tokens=True)
 # tokenizer.decode(model.generate(**tokenizer([x], return_tensors='pt'), max_length=64)[0], skip_special_tokens=True)
+print(tokenizer.batch_decode(model.generate(**tokenizer(examples, truncation=True, padding=True, max_length=512, return_tensors='pt'), max_length=64, do_sample=True, top_p=0.92, num_return_sequences=5), skip_special_tokens=True))
